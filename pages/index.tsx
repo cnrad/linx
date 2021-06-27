@@ -114,7 +114,8 @@ const Header = styled(motion.div)`
 
 const Container = styled(motion.div)`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
 `
 
 const Input = styled(motion.input)<{showResult: boolean}>`
@@ -129,6 +130,7 @@ const Input = styled(motion.input)<{showResult: boolean}>`
     color: #000;
     background: #fff;
     margin-right: 0.5rem;
+    margin-bottom: 1rem;
     transition: background ease-in-out 0.2s;
 
     &:focus {
@@ -141,7 +143,7 @@ const ShortenBtn = styled(motion.div)<{showResult: boolean}>`
     display: ${({showResult}) => showResult ? "none" : "inline"};
     text-align: center;
     border-radius: 8px;
-    min-width: 4rem;
+    width: 4rem;
     font-size: 1em;
     padding: 0.5rem;
     color: #fff;
@@ -156,7 +158,7 @@ const ShortenBtn = styled(motion.div)<{showResult: boolean}>`
 
 const Result = styled(motion.div)<{showResult: boolean}>`
     display: ${({showResult}) => showResult ? "inline" : "none"};
-    text-align: left;
+    text-align: center;
     border-radius: 8px;
     min-width: 20rem;
     width: 50%;
@@ -167,6 +169,7 @@ const Result = styled(motion.div)<{showResult: boolean}>`
     color: #193259;
     background: #91deff;
     margin-right: 0.5rem;
+    margin-bottom: 1rem;
     transition: background ease-in-out 0.2s;
 `
 
@@ -177,7 +180,7 @@ const CopyBtn = styled(motion.div)<{showResult: boolean}>`
     text-align: center;
     min-width: 4rem;
     text-align: center;
-    min-width: 4rem;
+    width: 4rem;
     font-size: 1em;
     padding: 0.5rem;
     color: #fff;
