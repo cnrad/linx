@@ -3,7 +3,8 @@ import redis from "../../lib/redis";
 import random from "../../lib/random";
 
 type Data = {
-    shortenedLink: string
+    shortenedLink?: string,
+    error?: string
 }
 
 export default async function handler(
@@ -12,8 +13,11 @@ export default async function handler(
 ) {
 
     let shortened = await random(5);
+    let newLink = new RegExp("^(http|https)://", "i").test(req.body.link)
+                ? req.body.link
+                : `https://${req.body.link}`;
 
-    await redis.hset("links", shortened, req.body.link);
+    await redis.hset("links", shortened, newLink);
 
     return res.status(200).json({ shortenedLink: shortened });
 }
